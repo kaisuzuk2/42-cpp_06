@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 10:10:44 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/22 10:10:47 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/22 12:17:00 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ bool ScalarConverter::isCharVal(const std::string &val) {
 }
 
 bool ScalarConverter::isPseudoVal(const std::string &val) {
-	return (val == "nan" || val == "+inf" || val == "-inf" || 
-				val == "nanf" || val == "+inff" || val == "-inff");
+	return (val == "nan" || val == "inf" || val == "-inf" || 
+				val == "nanf" || val == "inff" || val == "-inff");
 }
 
 bool ScalarConverter::isFloatVal(const std::string &val) {
@@ -46,9 +46,6 @@ bool ScalarConverter::isFloatVal(const std::string &val) {
 	tmp = std::strtod(core.c_str(), &end);
 	if (end == core.c_str() || *end != '\0')
 		return (false);
-	if (tmp > std::numeric_limits<float>::max() || 
-			tmp < std::numeric_limits<float>::min())
-		return (false);
 	return (true);
 }
 
@@ -62,8 +59,6 @@ bool ScalarConverter::isDoubleVal(const std::string &val) {
 	return (false);
 	tmp = std::strtod(val.c_str(), &end);
 	if (end == val.c_str() || *end != '\0')
-		return (false);
-	if (errno == ERANGE)
 		return (false);
 	return (true);
 }
@@ -123,7 +118,13 @@ double ScalarConverter::parseDouble(const std::string &val) {
 }
 
 void ScalarConverter::printFromChar(char c) {
-	std::cout << "char: " << c << std::endl;
+	std::cout << "char: ";
+	if (c < 0 || c > 127)
+		std::cout << "impossible" << std::endl;
+	else if (!std::isprint(c))
+		std::cout << "Non displayable" << std::endl;
+	else
+		std::cout << c << std::endl;
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) <<  static_cast<double>(c) << std::endl;
@@ -154,7 +155,7 @@ void ScalarConverter::printFromFloat(float f) {
 	std::cout << "int: ";
 	if (f > std::numeric_limits<int>::max() || 
 		f < std::numeric_limits<int>::min())
-		std::cout << "impossible" << std::endl;
+		std::cout << "i" << std::endl;
 	else
 		std::cout <<  static_cast<int>(f) << std::endl;
 	std::cout << std::fixed << std::setprecision(1) << "float: " <<  f << "f" << std::endl;
@@ -177,13 +178,7 @@ void ScalarConverter::printFromDouble(double d) {
 	else 
 		std::cout << static_cast<int>(d)<< std::endl;
 	
-	std::cout << "float: ";
-	if (d > std::numeric_limits<float>::max() || 
-		d < std::numeric_limits<float>::min())
-		std::cout << "impossible" << std::endl;
-	else
-		std::cout << std::fixed << std::setprecision(1)  << static_cast<float>(d) << "f" << std::endl;
-
+	std::cout <<  std::fixed << std::setprecision(1) << "float: " << static_cast<float>(d) << "f" << std::endl;
 	std::cout  << std::fixed << std::setprecision(1) << "double: " <<  d << std::endl;
 }
 
@@ -202,14 +197,14 @@ void ScalarConverter::printPseudo(const std::string &val) {
 		std::cout << "double: nan" << std::endl;
 	}
 
-	if (val == "+inf" || val == "+inff") {
+	if (val == "inf" || val == "inff") {
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: +inff" << std::endl;
-		std::cout << "double: +inf" << std::endl;
+		std::cout << "float: inff" << std::endl;
+		std::cout << "double: inf" << std::endl;
 	}	
 
-	if (val == "-inf" || val == "+inf") {
+	if (val == "-inf" || val == "-inff") {
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
 		std::cout << "float: -inff" << std::endl;
