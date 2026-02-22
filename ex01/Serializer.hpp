@@ -6,14 +6,20 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 12:19:46 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/22 12:22:09 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/22 13:33:18 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_HPP
 # define SERIALIZER_HPP
 
-#include <cstdint>
+#include <stdint.h>
+#include <string>
+
+struct Data {
+	int id;
+	std::string name;
+};
 
 class Serializer {
 	private:
@@ -22,8 +28,8 @@ class Serializer {
 		Serializer &operator=(const Serializer &);
 		~Serializer();	
 	public:
-		uintptr_t serialize(Data *ptr);
-		Data *deserialize(uintptr_t raw);
+		static uintptr_t serialize(Data *ptr);
+		static Data *deserialize(uintptr_t raw);
 };
 
 #endif

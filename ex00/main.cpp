@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 09:06:46 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/22 12:16:30 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/22 13:35:00 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int main(int argc, char *argv[]) {
 	if (argc != 2 || !argv[1][0])
 	{
 		std::cerr << "Usage: ./convertion <value>" << std::endl;
+		std::cerr << "Test: ./convertion test" << std::endl;
 		return (1);
 	}
 	input = argv[1];
