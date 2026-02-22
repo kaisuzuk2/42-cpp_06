@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 10:10:39 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/22 10:03:59 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/22 12:42:16 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ScalarConverter {
 		ScalarConverter(const ScalarConverter &);
 		ScalarConverter &operator=(const ScalarConverter &);
 		~ScalarConverter();
+		static const int kCharSize = 255;
 		enum ValType {
 			T_CHAR, 
 			T_INT,

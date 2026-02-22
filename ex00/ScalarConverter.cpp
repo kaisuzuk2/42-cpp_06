@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 10:10:44 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/22 12:17:00 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/22 12:42:32 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,9 +119,7 @@ double ScalarConverter::parseDouble(const std::string &val) {
 
 void ScalarConverter::printFromChar(char c) {
 	std::cout << "char: ";
-	if (c < 0 || c > 127)
-		std::cout << "impossible" << std::endl;
-	else if (!std::isprint(c))
+	if (!std::isprint(c))
 		std::cout << "Non displayable" << std::endl;
 	else
 		std::cout << c << std::endl;
@@ -132,7 +130,7 @@ void ScalarConverter::printFromChar(char c) {
 
 void ScalarConverter::printFromInt(int i) {
 	std::cout << "char: ";
-	if (i < 0 || i > 127)
+	if (i < 0 || i > kCharSize)
 		std::cout << "impossible" << std::endl;
 	else if (!std::isprint(i))
 		std::cout << "Non displayable" << std::endl;
@@ -145,7 +143,7 @@ void ScalarConverter::printFromInt(int i) {
 
 void ScalarConverter::printFromFloat(float f) {
 	std::cout << "char: ";
-	if (f < 0 || f > 127) 
+	if (f < 0 || f > kCharSize) 
 		std::cout << "impossible" << std::endl;
 	else if (!std::isprint(f))
 		std::cout << "Non displayable" << std::endl;
@@ -164,7 +162,7 @@ void ScalarConverter::printFromFloat(float f) {
 
 void ScalarConverter::printFromDouble(double d) {
 	std::cout << "char: ";
-	if (d < 0 || d > 127)
+	if (d < 0 || d > kCharSize)
 		std::cout << "impossible" << std::endl;
 	else if (!std::isprint(d))
 		std::cout << "Non displayable" << std::endl;
