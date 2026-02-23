@@ -6,14 +6,14 @@
 #    By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/22 13:29:38 by kaisuzuk          #+#    #+#              #
-#    Updated: 2026/02/22 13:30:22 by kaisuzuk         ###   ########.fr        #
+#    Updated: 2026/02/23 13:25:15 by kaisuzuk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME	=	serializer
 CXX		=	c++
-FLAG	=	-Wall -Werror -Wextra -std=c++98 
+FLAG	=	-Wall -Werror -Wextra -std=c++98
 
 SRCS	=	Serializer.cpp \
 			main.cpp
