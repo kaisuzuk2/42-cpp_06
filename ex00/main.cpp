@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 09:06:46 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/22 13:35:00 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/23 08:53:24 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void test(void) {
 	test_sec("42.0f");
 
 	title(1, "char test");
-	test_sec("'a'");
-	test_sec("'z'");
-	test_sec("'\t'"); //Non displayable
+	test_sec("a");
+	test_sec("z");
+	test_sec("\t"); //Non displayable
 	
 	title(2, "int test");
 	test_sec("97");

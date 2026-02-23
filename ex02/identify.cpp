@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 08:32:33 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/23 08:47:00 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/23 09:26:30 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ void identify(Base *p) {
 
 void identify(Base &p) {
 	try {
-		dynamic_cast<A &>(p);
+		(void)dynamic_cast<A &>(p);
 		std::cout << "A" << std::endl;
 		return ;
 	} catch(...) {}
 	try {
-		dynamic_cast<B &>(p);
+		(void)dynamic_cast<B &>(p);
 		std::cout << "B" << std::endl;
 		return ;
 	} catch(...) {}
 	try {
-		dynamic_cast<C &>(p);
+		(void)dynamic_cast<C &>(p);
 		std::cout << "C" << std::endl;
 		return;
 	} catch (...) {}

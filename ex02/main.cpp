@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   identify.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 08:33:08 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/23 08:54:41 by kaisuzuk         ###   ########.fr       */
+/*   Created: 2026/02/23 09:20:27 by kaisuzuk          #+#    #+#             */
+/*   Updated: 2026/02/23 09:24:46 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef IDENTIFY_HPP
-# define IDENTIFY_HPP
 
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+#include "generate.hpp"
+#include "identify.hpp"
 
-#include <iostream>
+int main(void) {
+	std::srand(std::time(0));
 
-void identify(Base *p);
-void identify(Base &p);
+	std::cout << "---------- test identify(Base *) ----------" << std::endl; 
+	for (int i = 0; i < 5; i++) {
+		Base *ptr = generate();
+		std::cout << "*** test " << i << ": ";
+		identify(ptr);
+	}
 
-#endif
+	std::cout << "---------- test identify(Base &) ----------" << std::endl;
+	for (int i = 0; i < 5; i++) {
+		Base *ptr = generate();
+		std::cout << "*** test" << i << ": ";
+		identify(*ptr);
+	}
+}

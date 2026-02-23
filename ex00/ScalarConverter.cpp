@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 10:10:44 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/22 12:42:32 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/23 08:52:57 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
 ScalarConverter::~ScalarConverter() {}
 
 bool ScalarConverter::isCharVal(const std::string &val) {
-	return (val.size() == 3 && val[0] == '\'' && val[2] == '\'');
+	// return (val.size() == 3 && val[0] == '\'' && val[2] == '\'');
+	return (val.size() == 1 && !isdigit(val[0]));
 }
 
 bool ScalarConverter::isPseudoVal(const std::string &val) {
@@ -122,7 +123,7 @@ void ScalarConverter::printFromChar(char c) {
 	if (!std::isprint(c))
 		std::cout << "Non displayable" << std::endl;
 	else
-		std::cout << c << std::endl;
+		std::cout << "\'" << c << "\'" << std::endl;
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) <<  static_cast<double>(c) << std::endl;
@@ -135,7 +136,7 @@ void ScalarConverter::printFromInt(int i) {
 	else if (!std::isprint(i))
 		std::cout << "Non displayable" << std::endl;
 	else
-		std::cout << static_cast<char>(i) << std::endl;
+		std::cout << "\'" << static_cast<char>(i) << "\'" << std::endl;
 	std::cout << "int: " << i << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" <<  std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
@@ -148,7 +149,7 @@ void ScalarConverter::printFromFloat(float f) {
 	else if (!std::isprint(f))
 		std::cout << "Non displayable" << std::endl;
 	else
-		std::cout << static_cast<char>(f) << std::endl;
+		std::cout <<  "\'" << static_cast<char>(f) << "\'"  << std::endl;
 	
 	std::cout << "int: ";
 	if (f > std::numeric_limits<int>::max() || 
@@ -167,7 +168,7 @@ void ScalarConverter::printFromDouble(double d) {
 	else if (!std::isprint(d))
 		std::cout << "Non displayable" << std::endl;
 	else 
-		std::cout << static_cast<char>(d);
+		std::cout <<  "\'" << static_cast<char>(d) <<  "\'" << std::endl;
 
 	std::cout << "int: ";
 	if (d > std::numeric_limits<int>::max() ||
@@ -219,7 +220,7 @@ void ScalarConverter::convert(const std::string &val) {
 
 	switch (type) {
 		case T_CHAR: 
-			c = val[1];
+			c = val[0];
 			printFromChar(c);
 			break;
 		case T_INT: 

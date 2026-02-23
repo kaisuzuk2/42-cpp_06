@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 08:25:24 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/23 08:32:08 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/23 09:21:24 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 Base *generate(void) {
 	int random;
 
-	std::srand(std::time(0));
 	random = std::rand() % 3;
 	if (random == 0)
 		return (new A);
