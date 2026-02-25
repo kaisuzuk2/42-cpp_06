@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 10:10:44 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/23 08:52:57 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/26 07:38:18 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
 ScalarConverter::~ScalarConverter() {}
 
 bool ScalarConverter::isCharVal(const std::string &val) {
-	// return (val.size() == 3 && val[0] == '\'' && val[2] == '\'');
 	return (val.size() == 1 && !isdigit(val[0]));
 }
 
