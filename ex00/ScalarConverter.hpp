@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 10:10:39 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/22 12:42:16 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/27 11:25:30 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class ScalarConverter {
 		static bool isFloatVal(const std::string &);
 		static bool isDoubleVal(const std::string &);
 		static bool isIntVal(const std::string &);
-		static long parseInt(const std::string &);
+		static int parseInt(const std::string &);
 		static float parseFloat(const std::string &);
 		static double parseDouble(const std::string &);
 		static void printFromChar(char c);

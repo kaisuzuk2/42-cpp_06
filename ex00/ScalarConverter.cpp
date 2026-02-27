@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 10:10:44 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/26 07:38:18 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/27 11:25:58 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,12 @@ ScalarConverter::ValType ScalarConverter::detectType(const std::string &val) {
 	return (T_INVALID);
 }
 
-long ScalarConverter::parseInt(const std::string &val) {
+int ScalarConverter::parseInt(const std::string &val) {
 	char *end;
 
 	end = 0;
 	long int res = std::strtol(val.c_str(), &end, 10);
-	return (res);
+	return (static_cast<int>(res));
 }
 
 float ScalarConverter::parseFloat(const std::string &val) {
