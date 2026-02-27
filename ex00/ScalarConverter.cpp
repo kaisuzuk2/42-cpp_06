@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 10:10:44 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2026/02/27 11:25:58 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2026/02/27 11:27:23 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,7 +213,7 @@ void ScalarConverter::printPseudo(const std::string &val) {
 void ScalarConverter::convert(const std::string &val) {
 	ValType type = detectType(val);
 	char c;
-	long i;
+	int i;
 	float f;
 	double d;
 
